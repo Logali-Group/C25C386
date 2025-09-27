@@ -1,0 +1,170 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+
+    <edmx:Reference Uri="/northwind/northwind.svc/$metadata">
+        <edmx:Include Namespace="NorthwindModel"/>
+        <edmx:Include Namespace="ODataWebV3.Northwind.Model"/>
+    </edmx:Reference>
+
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+
+            <Annotations Target="NorthwindModel.Customer/CustomerID">
+                <Annotation Term="Common.Label" String="{@i18n>customerId}"/>
+            </Annotations>
+
+            <Annotations Target="NorthwindModel.Customer/CompanyName">
+                <Annotation Term="Common.Label" String="{@i18n>companyName}"/>
+            </Annotations>
+
+            <Annotations Target="NorthwindModel.Customer/ContactName">
+                <Annotation Term="Common.Label" String="{@i18n>contactName}"/>
+            </Annotations>
+
+            <Annotations Target="NorthwindModel.Customer/Country">
+                <Annotation Term="Common.Label" String="{@i18n>country}"/>
+            </Annotations>
+
+            <Annotations Target="NorthwindModel.Customer/Region">
+                <Annotation Term="Common.Label" String="{@i18n>region}"/>
+            </Annotations>
+
+            <Annotations Target="NorthwindModel.Customer/City">
+                <Annotation Term="Common.Label" String="{@i18n>city}"/>
+            </Annotations>
+            
+            <Annotations Target="NorthwindModel.Customer/Address">
+                <Annotation Term="Common.Label" String="{@i18n>address}"/>
+            </Annotations>
+
+            <Annotations Target="NorthwindModel.Customer/Phone">
+                <Annotation Term="Common.Label" String="{@i18n>phoneNumber}"/>
+            </Annotations>
+
+            <Annotations Target="NorthwindModel.Customer/PostalCode">
+                <Annotation Term="Common.Label" String="{@i18n>postalCode}"/>
+            </Annotations>
+
+            <Annotations Target="NorthwindModel.Customer/Fax">
+                <Annotation Term="Common.Label" String="{@i18n>fax}"/>
+            </Annotations>
+
+            <Annotations Target="NorthwindModel.Customer/CompanyName">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="Customer_and_Suppliers_by_Cities"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CompanyName"/>
+                                    <PropertyValue Property="ValueListProperty" String="CompanyName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <Annotations Target="NorthwindModel.Customer">
+
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>CustomerID</PropertyPath>
+                        <PropertyPath>CompanyName</PropertyPath>
+                        <PropertyPath>ContactName</PropertyPath>
+                        <PropertyPath>Country</PropertyPath>
+                        <PropertyPath>Region</PropertyPath>
+                        <PropertyPath>City</PropertyPath>
+                        <PropertyPath>PostalCode</PropertyPath>
+                    </Collection>
+                </Annotation>
+
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="{@i18n>customer}"/>
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n>appTitle}"/>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CustomerID"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CompanyName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ContactName"/>
+                        </Record>
+                        <Record Type="UI.DataFieldForAnnotation">
+                            <PropertyValue Property="Target" AnnotationPath="@Communication.Contact"/>
+                            <PropertyValue Property="Label" String="{@i18n>contactTitle}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Country"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Region"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="City"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Address"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Phone"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <Annotation Term="Communication.Contact">
+                    <Record Type="Communication.ContactType">
+                        <PropertyValue Property="fn" Path="ContactTitle"/>
+                        <PropertyValue Property="adr">
+                            <Collection>
+                                <Record Type="Communication.AddressType">
+                                    <PropertyValue Property="type" EnumMember="Communication.ContactInformationType/work"/>
+                                    <PropertyValue Property="country" Path="Country"/>
+                                    <PropertyValue Property="locality" Path="City"/>
+                                    <PropertyValue Property="code" Path="PostalCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="tel">
+                            <Collection>
+                                <Record Type="Communication.PhoneNumberType">
+                                    <PropertyValue Property="type" EnumMember="Communication.PhoneType/cell"/>
+                                    <PropertyValue Property="uri" Path="Phone"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="email">
+                            <Collection>
+                                <Record Type="Communication.EmailAddressType">
+                                    <PropertyValue Property="type" EnumMember="Communication.ContactInformationType/work"/>
+                                    <PropertyValue Property="address" String="jbriceno@logaligroup.com"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+            </Annotations>
+
+        </Schema>
+    </edmx:DataServices>
+
+</edmx:Edmx>
