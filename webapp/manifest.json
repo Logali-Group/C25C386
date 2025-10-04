@@ -137,6 +137,23 @@
             "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
             "component": {
               "name": "sap.suite.ui.generic.template.ObjectPage"
+            },
+            "pages": {
+              "ObjectPage|Orders": {
+                "entitySet": "Orders",
+                "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+                "component": {
+                  "name": "sap.suite.ui.generic.template.ObjectPage"
+                },
+                "pages": {
+                  "ObjectPage|Order_Details": {
+                    "entitySet": "Order_Details",
+                    "component": {
+                      "name": "sap.suite.ui.generic.template.ObjectPage"
+                    }
+                  }
+                }
+              }
             }
           }
         }
