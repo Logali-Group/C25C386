@@ -1,0 +1,2299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="http://s4h22.sap4practice.com:8007/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://s4h22.sap4practice.com:8007/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://s4h22.sap4practice.com:8007/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://s4h22.sap4practice.com:8007/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://s4h22.sap4practice.com:8007/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://s4h22.sap4practice.com:8007/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://s4h22.sap4practice.com:8007/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://s4h22.sap4practice.com:8007/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://s4h22.sap4practice.com:8007/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="SEPMRA_SO_ANA" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="SEPMRA_C_ALP_CalendarMonthVHType" sap:label="Calendar Month" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CalendarMonth"/>
+                </Key>
+                <Property Name="CalendarMonth" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="NonNegative" sap:text="CalendarMonthT" sap:label="Month" sap:quickinfo="Month number"/>
+                <Property Name="CalendarMonthT" Type="Edm.String" MaxLength="10" sap:attribute-for="CalendarMonth" sap:label="Month Name"/>
+            </EntityType>
+            <EntityType Name="SEPMRA_C_ALP_CalendarQuarterVHType" sap:label="Calendar Quarter" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CalendarQuarter"/>
+                </Key>
+                <Property Name="CalendarQuarter" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="NonNegative" sap:text="CalendarQuarterT" sap:label="Quarter" sap:quickinfo="Fiori Reference Apps: Calendar Quarter"/>
+                <Property Name="CalendarQuarterT" Type="Edm.String" MaxLength="60" sap:attribute-for="CalendarQuarter" sap:label="Quarter Text"/>
+            </EntityType>
+            <EntityType Name="SEPMRA_C_ALP_CalendarYearVHType" sap:label="Calendar Year" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CalendarYear"/>
+                </Key>
+                <Property Name="CalendarYear" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Delivery Year" sap:quickinfo="Delivery Calendar Year"/>
+            </EntityType>
+            <EntityType Name="SEPMRA_C_ALP_CountryVHType" sap:label="Country" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Country"/>
+                </Key>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="CountryT" sap:label="Country" sap:quickinfo="EPM: Country Code"/>
+                <Property Name="CountryT" Type="Edm.String" MaxLength="50" sap:attribute-for="Country" sap:label="Name"/>
+            </EntityType>
+            <EntityType Name="SEPMRA_C_ALP_CustomerType" sap:label="Customer" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Customer"/>
+                </Key>
+                <Property Name="Customer" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="CompanyName" sap:label="Customer" sap:quickinfo="EPM: Customer ID"/>
+                <Property Name="CompanyName" Type="Edm.String" MaxLength="80" sap:label="Company" sap:quickinfo="EPM: Company Name"/>
+                <Property Name="EmailAddress" Type="Edm.String" MaxLength="255" sap:label="Email" sap:quickinfo="EPM: E-Mail Address" sap:semantics="email"/>
+                <Property Name="FaxNumber" Type="Edm.String" MaxLength="30" sap:label="Fax" sap:quickinfo="EPM: Fax Number" sap:semantics="tel"/>
+                <Property Name="PhoneNumber" Type="Edm.String" MaxLength="30" sap:label="Phone" sap:quickinfo="EPM: Phone Number" sap:semantics="tel"/>
+                <Property Name="URL" Type="Edm.String" sap:label="Web Site" sap:quickinfo="EPM: Web Address"/>
+            </EntityType>
+            <EntityType Name="SEPMRA_C_ALP_CustomerVHType" sap:label="Customer" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SoldToParty"/>
+                </Key>
+                <Property Name="SoldToParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="CompanyName" sap:label="Customer" sap:quickinfo="EPM: Customer ID"/>
+                <Property Name="CompanyName" Type="Edm.String" MaxLength="80" sap:label="Company" sap:quickinfo="EPM: Company Name"/>
+                <Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Country" sap:quickinfo="EPM: Country Code" sap:value-list="standard"/>
+            </EntityType>
+            <EntityType Name="SEPMRA_C_ALP_ProductType" sap:label="Product" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Product"/>
+                </Key>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="10" sap:text="ProductName" sap:label="Product" sap:quickinfo="Product ID"/>
+                <Property Name="ProductName" Type="Edm.String" MaxLength="255" sap:attribute-for="Product" sap:label="Name" sap:quickinfo="Product Name"/>
+                <Property Name="ProductDescription" Type="Edm.String" MaxLength="255" sap:attribute-for="Product" sap:label="Description" sap:quickinfo="Product Description"/>
+                <Property Name="Price" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Currency" sap:label="Price per Unit" sap:quickinfo="Fiori Reference Apps: Product Unit Price"/>
+                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:text="Currency_T" sap:label="Currency" sap:semantics="currency-code"/>
+                <Property Name="Currency_T" Type="Edm.String" MaxLength="40" sap:attribute-for="Currency" sap:label="Description"/>
+                <Property Name="AverageRatingValue" Type="Edm.Decimal" Precision="4" Scale="2" sap:label="Average Rating" sap:quickinfo="EPM: Review Rating Average"/>
+                <Property Name="Depth" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="DimensionUnit" sap:label="Depth" sap:quickinfo="EPM: Depth"/>
+                <Property Name="Width" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="DimensionUnit" sap:label="Width" sap:quickinfo="EPM: Width"/>
+                <Property Name="Height" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="DimensionUnit" sap:label="Height" sap:quickinfo="EPM: Height"/>
+                <Property Name="DimensionUnit" Type="Edm.String" MaxLength="3" sap:text="DimensionUnit_T" sap:label="Dimension Unit" sap:quickinfo="EPM: Dimension Unit" sap:semantics="unit-of-measure"/>
+                <Property Name="DimensionUnit_T" Type="Edm.String" MaxLength="10" sap:attribute-for="DimensionUnit" sap:label="Measuremt unit text" sap:quickinfo="Unit of Measurement Text (Maximum 10 Characters)"/>
+                <Property Name="ProductCategory" Type="Edm.String" MaxLength="40" sap:label="Category" sap:quickinfo="Product Sub-Category"/>
+                <Property Name="MainProductCategory" Type="Edm.String" MaxLength="40" sap:label="Main Category" sap:value-list="fixed-values"/>
+                <Property Name="ProductValueAddedTax" Type="Edm.Byte" sap:text="ProductValueAddedTax_T" sap:label="Tax Tariff Code" sap:quickinfo="EPM: Product Tax Tariff Code"/>
+                <Property Name="ProductValueAddedTax_T" Type="Edm.String" MaxLength="60" sap:attribute-for="ProductValueAddedTax" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values"/>
+                <Property Name="ProductPictureURL" Type="Edm.String" MaxLength="255" sap:label="Image" sap:quickinfo="Image of the product"/>
+                <Property Name="Supplier" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Supplier" sap:quickinfo="Supplier ID"/>
+                <Property Name="Weight" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="WeightUnit" sap:label="Weight" sap:quickinfo="EPM: Weight Measure"/>
+                <Property Name="WeightUnit" Type="Edm.String" MaxLength="3" sap:text="WeightUnit_T" sap:label="Weight Unit" sap:semantics="unit-of-measure"/>
+                <Property Name="WeightUnit_T" Type="Edm.String" MaxLength="10" sap:attribute-for="WeightUnit" sap:label="Measuremt unit text" sap:quickinfo="Unit of Measurement Text (Maximum 10 Characters)"/>
+            </EntityType>
+            <EntityType Name="SEPMRA_C_ALP_ProductCatVHType" sap:label="Product Sub-Category" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProductCategory"/>
+                </Key>
+                <Property Name="ProductCategory" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Category"/>
+                <Property Name="MainProductCategory" Type="Edm.String" MaxLength="40" sap:label="Main Category" sap:value-list="fixed-values"/>
+            </EntityType>
+            <EntityType Name="SEPMRA_C_ALP_ProductMainCatVHType" sap:label="Product Category" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MainProductCategory"/>
+                </Key>
+                <Property Name="MainProductCategory" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Category"/>
+            </EntityType>
+            <EntityType Name="SEPMRA_C_ALP_ProductVHType" sap:label="Product" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Product"/>
+                </Key>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="10" sap:text="ProductName" sap:label="Product" sap:quickinfo="Product ID"/>
+                <Property Name="ProductName" Type="Edm.String" MaxLength="255" sap:attribute-for="Product" sap:label="Name" sap:quickinfo="Product Name"/>
+                <Property Name="ProductDescription" Type="Edm.String" MaxLength="255" sap:attribute-for="Product" sap:label="Description" sap:quickinfo="Product Description"/>
+                <Property Name="ProductCategory" Type="Edm.String" MaxLength="40" sap:label="Category" sap:quickinfo="Product Sub-Category" sap:value-list="standard"/>
+                <Property Name="MainProductCategory" Type="Edm.String" MaxLength="40" sap:label="Main Category" sap:value-list="fixed-values"/>
+                <Property Name="Supplier" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Supplier" sap:quickinfo="Supplier ID" sap:value-list="standard"/>
+            </EntityType>
+            <EntityType Name="SEPMRA_C_ALP_SalesOrderType" sap:label="Sales Order" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SalesOrder"/>
+                </Key>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Sales Order ID" sap:quickinfo="EPM: Sales Order Number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Customer" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:text="to_Customer/CompanyName" sap:label="Customer" sap:quickinfo="EPM: Customer ID" sap:value-list="standard"/>
+                <Property Name="NetAmountInTransactionCurrency" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="TransactionCurrency" sap:label="Net Amount" sap:quickinfo="EPM: Total Net Amount"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" MaxLength="5" sap:text="TransactionCurrency_T" sap:label="Currency Code" sap:quickinfo="EPM: Currency Code" sap:semantics="currency-code"/>
+                <Property Name="TransactionCurrency_T" Type="Edm.String" MaxLength="15" sap:attribute-for="TransactionCurrency" sap:label="Short text"/>
+                <Property Name="SalesOrderOverallStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:text="SalesOrderOverallStatus_T" sap:label="Overall Status" sap:quickinfo="EPM: Sales Order Overall Status"/>
+                <Property Name="SalesOrderOverallStatus_T" Type="Edm.String" MaxLength="60" sap:attribute-for="SalesOrderOverallStatus" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values"/>
+                <Property Name="CreationDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Created At" sap:quickinfo="EPM: Created At" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created By" sap:quickinfo="EPM: Created By User" sap:value-list="standard"/>
+                <Property Name="LastChangedDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Changed At" sap:quickinfo="EPM: Changed At" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Last Changed By" sap:quickinfo="EPM: Last Changed By User" sap:value-list="standard"/>
+                <NavigationProperty Name="to_CreatedByUser" Relationship="SEPMRA_SO_ANA.assoc_2147FD6D4D5D8F564F40B05369AD26BC" FromRole="FromRole_assoc_2147FD6D4D5D8F564F40B05369AD26BC" ToRole="ToRole_assoc_2147FD6D4D5D8F564F40B05369AD26BC"/>
+                <NavigationProperty Name="to_Customer" Relationship="SEPMRA_SO_ANA.assoc_99F50847A843041C6EACDE98C9A6690C" FromRole="FromRole_assoc_99F50847A843041C6EACDE98C9A6690C" ToRole="ToRole_assoc_99F50847A843041C6EACDE98C9A6690C"/>
+                <NavigationProperty Name="to_Items" Relationship="SEPMRA_SO_ANA.assoc_4B7F44C128E6D1B4FBEB759C293CF5D5" FromRole="FromRole_assoc_4B7F44C128E6D1B4FBEB759C293CF5D5" ToRole="ToRole_assoc_4B7F44C128E6D1B4FBEB759C293CF5D5"/>
+                <NavigationProperty Name="to_LastChangedByUser" Relationship="SEPMRA_SO_ANA.assoc_D6B8C833B81F95BE4482A9709964DFEF" FromRole="FromRole_assoc_D6B8C833B81F95BE4482A9709964DFEF" ToRole="ToRole_assoc_D6B8C833B81F95BE4482A9709964DFEF"/>
+            </EntityType>
+            <EntityType Name="SEPMRA_C_ALP_SalesOrderItemType" sap:label="Sales Order Item" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SalesOrder"/>
+                    <PropertyRef Name="SalesOrderItem"/>
+                </Key>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Sales Order ID" sap:quickinfo="EPM: Sales Order Number" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Item Position" sap:quickinfo="EPM: Sales Order Item Position"/>
+                <Property Name="Product" Type="Edm.String" MaxLength="10" sap:text="to_Product/ProductName" sap:label="Product" sap:quickinfo="Product ID" sap:value-list="standard"/>
+                <Property Name="Quantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="QuantityUnit" sap:label="Quantity" sap:quickinfo="EPM: Quantity"/>
+                <Property Name="QuantityUnit" Type="Edm.String" MaxLength="3" sap:text="QuantityUnit_T" sap:label="Unit of Measure" sap:quickinfo="EPM: Quantity Unit" sap:semantics="unit-of-measure"/>
+                <Property Name="QuantityUnit_T" Type="Edm.String" MaxLength="10" sap:attribute-for="QuantityUnit" sap:label="Measuremt unit text" sap:quickinfo="Unit of Measurement Text (Maximum 10 Characters)"/>
+                <Property Name="NetAmountInTransactionCurrency" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="TransactionCurrency" sap:label="Net Amount" sap:quickinfo="EPM: Total Net Amount"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" MaxLength="5" sap:text="TransactionCurrency_T" sap:label="Currency Code" sap:quickinfo="EPM: Currency Code" sap:semantics="currency-code"/>
+                <Property Name="TransactionCurrency_T" Type="Edm.String" MaxLength="15" sap:attribute-for="TransactionCurrency" sap:label="Short text"/>
+                <Property Name="DeliveryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Delivery Date"/>
+                <NavigationProperty Name="to_SalesOrder" Relationship="SEPMRA_SO_ANA.assoc_4B7F44C128E6D1B4FBEB759C293CF5D5" FromRole="ToRole_assoc_4B7F44C128E6D1B4FBEB759C293CF5D5" ToRole="FromRole_assoc_4B7F44C128E6D1B4FBEB759C293CF5D5"/>
+                <NavigationProperty Name="to_Product" Relationship="SEPMRA_SO_ANA.assoc_E04DBC188394E718489B8003D3546C60" FromRole="FromRole_assoc_E04DBC188394E718489B8003D3546C60" ToRole="ToRole_assoc_E04DBC188394E718489B8003D3546C60"/>
+            </EntityType>
+            <EntityType Name="SEPMRA_C_ALP_SlsOrdItemCubeType" sap:semantics="aggregate" sap:label="Sales Analysis" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrder" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Sales Order" sap:quickinfo="Sales Order ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Sales Order Item" sap:quickinfo="Sales Order Item ID"/>
+                <Property Name="DeliveryCalendarDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date" sap:label="Date"/>
+                <Property Name="DeliveryCalendarYear" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Year" sap:quickinfo="Calendar Year" sap:value-list="standard"/>
+                <Property Name="DeliveryCalendarQuarter" Type="Edm.String" MaxLength="1" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:text="DeliveryCalendarQuarterT" sap:label="Quarter" sap:quickinfo="Calendar Quarter" sap:value-list="fixed-values"/>
+                <Property Name="DeliveryCalendarQuarterT" Type="Edm.String" MaxLength="60" sap:attribute-for="DeliveryCalendarQuarter" sap:label="Quarter Text"/>
+                <Property Name="DeliveryCalendarMonth" Type="Edm.String" MaxLength="2" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:text="DeliveryCalendarMonthT" sap:label="Month" sap:quickinfo="Calendar Month" sap:value-list="fixed-values"/>
+                <Property Name="DeliveryCalendarMonthT" Type="Edm.String" MaxLength="3" sap:attribute-for="DeliveryCalendarMonth" sap:display-format="UpperCase" sap:label="Month Name" sap:quickinfo="Month Name (short)"/>
+                <Property Name="Product" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:text="ProductName" sap:label="Product" sap:quickinfo="Product ID" sap:value-list="standard"/>
+                <Property Name="ProductName" Type="Edm.String" MaxLength="255" sap:attribute-for="Product" sap:label="Product Name"/>
+                <Property Name="NetProductPrice" Type="Edm.Decimal" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unit="Currency" sap:label="Net Product Price" sap:quickinfo="Net product unit price in local currency" sap:filterable="false"/>
+                <Property Name="ProductCategory" Type="Edm.String" MaxLength="40" sap:aggregation-role="dimension" sap:label="Category" sap:quickinfo="Product Sub-Category" sap:value-list="fixed-values"/>
+                <Property Name="MainProductCategory" Type="Edm.String" MaxLength="40" sap:aggregation-role="dimension" sap:label="Main Category" sap:value-list="fixed-values"/>
+                <Property Name="SalesOrderOverallStatus" Type="Edm.String" MaxLength="1" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:text="SalesOrderOverallStatusT" sap:label="Status" sap:quickinfo="Sales Order Overall Status" sap:value-list="fixed-values"/>
+                <Property Name="SalesOrderOverallStatusT" Type="Edm.String" MaxLength="60" sap:attribute-for="SalesOrderOverallStatus" sap:label="Status Name" sap:quickinfo="Sales Order Overall Status Name"/>
+                <Property Name="SoldToParty" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:text="SoldToPartyCompanyName" sap:label="Customer" sap:quickinfo="Customer ID" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="SoldToPartyCompanyName" Type="Edm.String" MaxLength="80" sap:attribute-for="SoldToParty" sap:label="Customer Company Name"/>
+                <Property Name="SoldToPartyCountry" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:text="SoldToPartyCountryName" sap:label="Customer Country" sap:quickinfo="Customer Country Code" sap:value-list="fixed-values"/>
+                <Property Name="SoldToPartyCountryName" Type="Edm.String" MaxLength="50" sap:attribute-for="SoldToPartyCountry" sap:label="Customer Country Name"/>
+                <Property Name="Supplier" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:text="SupplierCompanyName" sap:label="Supplier" sap:quickinfo="Supplier ID" sap:value-list="standard"/>
+                <Property Name="SupplierCompanyName" Type="Edm.String" MaxLength="80" sap:attribute-for="Supplier" sap:display-format="UpperCase" sap:label="Supplier Company Name"/>
+                <Property Name="GrossAmount" Type="Edm.Decimal" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unit="Currency" sap:label="Gross Revenue" sap:filterable="false"/>
+                <Property Name="NetAmount" Type="Edm.Decimal" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unit="Currency" sap:label="Revenue" sap:quickinfo="Net Revenue" sap:filterable="false"/>
+                <Property Name="NetAmntDeviationRangeLow" Type="Edm.Double" sap:aggregation-role="measure" sap:filterable="false"/>
+                <Property Name="NetAmntToleranceRangeLow" Type="Edm.Double" sap:aggregation-role="measure" sap:filterable="false"/>
+                <Property Name="TaxAmount" Type="Edm.Decimal" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unit="Currency" sap:label="Tax Amount" sap:quickinfo="Total Tax Amount" sap:filterable="false"/>
+                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:aggregation-role="dimension" sap:text="CurrencyT" sap:label="Currency" sap:semantics="currency-code"/>
+                <Property Name="CurrencyT" Type="Edm.String" MaxLength="15" sap:attribute-for="Currency" sap:label="Currency Name"/>
+                <Property Name="Quantity" Type="Edm.Int32" sap:aggregation-role="measure" sap:unit="QuantityUnit" sap:label="Quantity" sap:filterable="false"/>
+                <Property Name="QuantityUnit" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:text="QuantityUnitT" sap:label="Unit of Measure" sap:quickinfo="EPM: Quantity Unit" sap:semantics="unit-of-measure"/>
+                <Property Name="QuantityUnitT" Type="Edm.String" MaxLength="10" sap:attribute-for="QuantityUnit" sap:label="Quantity Unit" sap:quickinfo="Quantity Unit Name"/>
+                <Property Name="NumberOfSalesOrders" Type="Edm.Int32" sap:aggregation-role="measure" sap:label="Number of Sales Orders" sap:filterable="false"/>
+                <NavigationProperty Name="to_Product" Relationship="SEPMRA_SO_ANA.assoc_2959EE88F6126CEC0198FD82F13EE7B8" FromRole="FromRole_assoc_2959EE88F6126CEC0198FD82F13EE7B8" ToRole="ToRole_assoc_2959EE88F6126CEC0198FD82F13EE7B8"/>
+                <NavigationProperty Name="to_SalesOrder" Relationship="SEPMRA_SO_ANA.assoc_33F6F629FB14F2FA9AD65F093B6F6520" FromRole="FromRole_assoc_33F6F629FB14F2FA9AD65F093B6F6520" ToRole="ToRole_assoc_33F6F629FB14F2FA9AD65F093B6F6520"/>
+                <NavigationProperty Name="to_SalesOrderItem" Relationship="SEPMRA_SO_ANA.assoc_FE16A495275A3BA7D195403FB549001C" FromRole="FromRole_assoc_FE16A495275A3BA7D195403FB549001C" ToRole="ToRole_assoc_FE16A495275A3BA7D195403FB549001C"/>
+            </EntityType>
+            <EntityType Name="SEPMRA_C_ALP_SlsOrdStatusVHType" sap:label="Sales Order Status" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SalesOrderOverallStatus"/>
+                </Key>
+                <Property Name="SalesOrderOverallStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:text="SalesOrderOverallStatus_Text" sap:label="Overall Status" sap:quickinfo="EPM: Sales Order Overall Status"/>
+                <Property Name="SalesOrderOverallStatus_Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="SEPMRA_C_ALP_SupplierVHType" sap:label="Supplier" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Supplier"/>
+                </Key>
+                <Property Name="Supplier" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="CompanyName" sap:label="Supplier" sap:quickinfo="Supplier ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CompanyName" Type="Edm.String" MaxLength="80" sap:display-format="UpperCase" sap:label="Supplier Name"/>
+                <Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Country" sap:quickinfo="EPM: Country Code" sap:value-list="standard"/>
+            </EntityType>
+            <EntityType Name="SEPMRA_C_ALP_TotalSalesKPIType" sap:semantics="aggregate" sap:label="Net Sales Revenue" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CalendarMonth" Type="Edm.String" MaxLength="2" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:text="CalendarMonthT" sap:label="Delivery Month" sap:quickinfo="Delivery Calendar Month"/>
+                <Property Name="CalendarMonthT" Type="Edm.String" MaxLength="10" sap:attribute-for="CalendarMonth" sap:label="Month Name"/>
+                <Property Name="KPIValue" Type="Edm.Decimal" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unit="Currency" sap:label="Net Sales" sap:filterable="false"/>
+                <Property Name="ReferenceValue" Type="Edm.Decimal" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unit="Currency" sap:label="Net Amount" sap:quickinfo="EPM: Total Net Amount" sap:filterable="false"/>
+                <Property Name="KPITargetValue" Type="Edm.Decimal" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unit="Currency" sap:label="Net Amount" sap:quickinfo="EPM: Total Net Amount" sap:filterable="false"/>
+                <Property Name="KPIDeviationRangeLowValue" Type="Edm.Decimal" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unit="Currency" sap:label="Net Amount" sap:quickinfo="EPM: Total Net Amount" sap:filterable="false"/>
+                <Property Name="KPIToleranceRangeLowValue" Type="Edm.Decimal" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unit="Currency" sap:label="Net Amount" sap:quickinfo="EPM: Total Net Amount" sap:filterable="false"/>
+                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:aggregation-role="dimension" sap:text="CurrencyT" sap:label="Currency" sap:semantics="currency-code"/>
+                <Property Name="CurrencyT" Type="Edm.String" MaxLength="15" sap:attribute-for="Currency" sap:label="Currency Name"/>
+            </EntityType>
+            <EntityType Name="SEPMRA_C_ALP_UserType" sap:label="User" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="UserId"/>
+                </Key>
+                <Property Name="UserId" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="User ID"/>
+                <Property Name="EmailAddress" Type="Edm.String" MaxLength="255" sap:label="Email" sap:quickinfo="EPM: E-Mail Address" sap:semantics="email"/>
+                <Property Name="PictureURL" Type="Edm.String" MaxLength="255" sap:label="Pic URI" sap:quickinfo="EPM: URL of Product Image"/>
+                <Property Name="Initials" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Initials" sap:quickinfo="EPM: Initials"/>
+                <Property Name="FirstName" Type="Edm.String" MaxLength="40" sap:label="First Name" sap:quickinfo="EPM: First Name"/>
+                <Property Name="MiddleName" Type="Edm.String" MaxLength="40" sap:label="Middle Name" sap:quickinfo="EPM: Middle Name"/>
+                <Property Name="LastName" Type="Edm.String" MaxLength="40" sap:label="Last Name" sap:quickinfo="EPM: Last Name"/>
+                <Property Name="FullName" Type="Edm.String" MaxLength="81" sap:label="Name" sap:quickinfo="Full Name"/>
+                <Property Name="MobilePhoneNumber" Type="Edm.String" MaxLength="30" sap:label="Mobile Phone Number" sap:quickinfo="EPM: Mobile Phone Number" sap:semantics="tel"/>
+                <Property Name="PhoneNumber" Type="Edm.String" MaxLength="30" sap:label="Phone" sap:quickinfo="EPM: Phone Number" sap:semantics="tel"/>
+            </EntityType>
+            <EntityType Name="SEPMRA_I_ProductMainCategoryType" sap:label="Category" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MainProductCategory"/>
+                </Key>
+                <Property Name="MainProductCategory" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Category"/>
+            </EntityType>
+            <Association Name="assoc_99F50847A843041C6EACDE98C9A6690C" sap:content-version="1">
+                <End Type="SEPMRA_SO_ANA.SEPMRA_C_ALP_SalesOrderType" Multiplicity="1" Role="FromRole_assoc_99F50847A843041C6EACDE98C9A6690C"/>
+                <End Type="SEPMRA_SO_ANA.SEPMRA_C_ALP_CustomerType" Multiplicity="0..1" Role="ToRole_assoc_99F50847A843041C6EACDE98C9A6690C"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_99F50847A843041C6EACDE98C9A6690C">
+                        <PropertyRef Name="Customer"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_99F50847A843041C6EACDE98C9A6690C">
+                        <PropertyRef Name="Customer"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_4B7F44C128E6D1B4FBEB759C293CF5D5" sap:content-version="1">
+                <End Type="SEPMRA_SO_ANA.SEPMRA_C_ALP_SalesOrderType" Multiplicity="1" Role="FromRole_assoc_4B7F44C128E6D1B4FBEB759C293CF5D5">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="SEPMRA_SO_ANA.SEPMRA_C_ALP_SalesOrderItemType" Multiplicity="*" Role="ToRole_assoc_4B7F44C128E6D1B4FBEB759C293CF5D5"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_4B7F44C128E6D1B4FBEB759C293CF5D5">
+                        <PropertyRef Name="SalesOrder"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_4B7F44C128E6D1B4FBEB759C293CF5D5">
+                        <PropertyRef Name="SalesOrder"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_D6B8C833B81F95BE4482A9709964DFEF" sap:content-version="1">
+                <End Type="SEPMRA_SO_ANA.SEPMRA_C_ALP_SalesOrderType" Multiplicity="1" Role="FromRole_assoc_D6B8C833B81F95BE4482A9709964DFEF"/>
+                <End Type="SEPMRA_SO_ANA.SEPMRA_C_ALP_UserType" Multiplicity="0..1" Role="ToRole_assoc_D6B8C833B81F95BE4482A9709964DFEF"/>
+            </Association>
+            <Association Name="assoc_2147FD6D4D5D8F564F40B05369AD26BC" sap:content-version="1">
+                <End Type="SEPMRA_SO_ANA.SEPMRA_C_ALP_SalesOrderType" Multiplicity="1" Role="FromRole_assoc_2147FD6D4D5D8F564F40B05369AD26BC"/>
+                <End Type="SEPMRA_SO_ANA.SEPMRA_C_ALP_UserType" Multiplicity="0..1" Role="ToRole_assoc_2147FD6D4D5D8F564F40B05369AD26BC"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_2147FD6D4D5D8F564F40B05369AD26BC">
+                        <PropertyRef Name="UserId"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_2147FD6D4D5D8F564F40B05369AD26BC">
+                        <PropertyRef Name="CreatedByUser"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_E04DBC188394E718489B8003D3546C60" sap:content-version="1">
+                <End Type="SEPMRA_SO_ANA.SEPMRA_C_ALP_SalesOrderItemType" Multiplicity="1" Role="FromRole_assoc_E04DBC188394E718489B8003D3546C60"/>
+                <End Type="SEPMRA_SO_ANA.SEPMRA_C_ALP_ProductType" Multiplicity="0..1" Role="ToRole_assoc_E04DBC188394E718489B8003D3546C60"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_E04DBC188394E718489B8003D3546C60">
+                        <PropertyRef Name="Product"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_E04DBC188394E718489B8003D3546C60">
+                        <PropertyRef Name="Product"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_2959EE88F6126CEC0198FD82F13EE7B8" sap:content-version="1">
+                <End Type="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType" Multiplicity="1" Role="FromRole_assoc_2959EE88F6126CEC0198FD82F13EE7B8"/>
+                <End Type="SEPMRA_SO_ANA.SEPMRA_C_ALP_ProductType" Multiplicity="0..1" Role="ToRole_assoc_2959EE88F6126CEC0198FD82F13EE7B8"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_2959EE88F6126CEC0198FD82F13EE7B8">
+                        <PropertyRef Name="Product"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_2959EE88F6126CEC0198FD82F13EE7B8">
+                        <PropertyRef Name="Product"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_33F6F629FB14F2FA9AD65F093B6F6520" sap:content-version="1">
+                <End Type="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType" Multiplicity="1" Role="FromRole_assoc_33F6F629FB14F2FA9AD65F093B6F6520"/>
+                <End Type="SEPMRA_SO_ANA.SEPMRA_C_ALP_SalesOrderType" Multiplicity="0..1" Role="ToRole_assoc_33F6F629FB14F2FA9AD65F093B6F6520"/>
+            </Association>
+            <Association Name="assoc_FE16A495275A3BA7D195403FB549001C" sap:content-version="1">
+                <End Type="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType" Multiplicity="1" Role="FromRole_assoc_FE16A495275A3BA7D195403FB549001C"/>
+                <End Type="SEPMRA_SO_ANA.SEPMRA_C_ALP_SalesOrderItemType" Multiplicity="0..1" Role="ToRole_assoc_FE16A495275A3BA7D195403FB549001C"/>
+            </Association>
+            <EntityContainer Name="SEPMRA_SO_ANA_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="SEPMRA_C_ALP_CalendarMonthVH" EntityType="SEPMRA_SO_ANA.SEPMRA_C_ALP_CalendarMonthVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="SEPMRA_C_ALP_CalendarQuarterVH" EntityType="SEPMRA_SO_ANA.SEPMRA_C_ALP_CalendarQuarterVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="SEPMRA_C_ALP_CalendarYearVH" EntityType="SEPMRA_SO_ANA.SEPMRA_C_ALP_CalendarYearVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="SEPMRA_C_ALP_CountryVH" EntityType="SEPMRA_SO_ANA.SEPMRA_C_ALP_CountryVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="SEPMRA_C_ALP_Customer" EntityType="SEPMRA_SO_ANA.SEPMRA_C_ALP_CustomerType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="SEPMRA_C_ALP_CustomerVH" EntityType="SEPMRA_SO_ANA.SEPMRA_C_ALP_CustomerVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="SEPMRA_C_ALP_Product" EntityType="SEPMRA_SO_ANA.SEPMRA_C_ALP_ProductType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="SEPMRA_C_ALP_ProductCatVH" EntityType="SEPMRA_SO_ANA.SEPMRA_C_ALP_ProductCatVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="SEPMRA_C_ALP_ProductMainCatVH" EntityType="SEPMRA_SO_ANA.SEPMRA_C_ALP_ProductMainCatVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="SEPMRA_C_ALP_ProductVH" EntityType="SEPMRA_SO_ANA.SEPMRA_C_ALP_ProductVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="SEPMRA_C_ALP_SalesOrder" EntityType="SEPMRA_SO_ANA.SEPMRA_C_ALP_SalesOrderType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="SEPMRA_C_ALP_SalesOrderItem" EntityType="SEPMRA_SO_ANA.SEPMRA_C_ALP_SalesOrderItemType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="SEPMRA_C_ALP_SlsOrdItemCube" EntityType="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="SEPMRA_C_ALP_SlsOrdStatusVH" EntityType="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdStatusVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="SEPMRA_C_ALP_SupplierVH" EntityType="SEPMRA_SO_ANA.SEPMRA_C_ALP_SupplierVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="SEPMRA_C_ALP_TotalSalesKPI" EntityType="SEPMRA_SO_ANA.SEPMRA_C_ALP_TotalSalesKPIType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="SEPMRA_C_ALP_User" EntityType="SEPMRA_SO_ANA.SEPMRA_C_ALP_UserType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="SEPMRA_I_ProductMainCategory" EntityType="SEPMRA_SO_ANA.SEPMRA_I_ProductMainCategoryType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <AssociationSet Name="assoc_99F50847A843041C6EACDE98C9A6690C" Association="SEPMRA_SO_ANA.assoc_99F50847A843041C6EACDE98C9A6690C" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SEPMRA_C_ALP_SalesOrder" Role="FromRole_assoc_99F50847A843041C6EACDE98C9A6690C"/>
+                    <End EntitySet="SEPMRA_C_ALP_Customer" Role="ToRole_assoc_99F50847A843041C6EACDE98C9A6690C"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_2147FD6D4D5D8F564F40B05369AD26BC" Association="SEPMRA_SO_ANA.assoc_2147FD6D4D5D8F564F40B05369AD26BC" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SEPMRA_C_ALP_SalesOrder" Role="FromRole_assoc_2147FD6D4D5D8F564F40B05369AD26BC"/>
+                    <End EntitySet="SEPMRA_C_ALP_User" Role="ToRole_assoc_2147FD6D4D5D8F564F40B05369AD26BC"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_2959EE88F6126CEC0198FD82F13EE7B8" Association="SEPMRA_SO_ANA.assoc_2959EE88F6126CEC0198FD82F13EE7B8" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SEPMRA_C_ALP_SlsOrdItemCube" Role="FromRole_assoc_2959EE88F6126CEC0198FD82F13EE7B8"/>
+                    <End EntitySet="SEPMRA_C_ALP_Product" Role="ToRole_assoc_2959EE88F6126CEC0198FD82F13EE7B8"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_E04DBC188394E718489B8003D3546C60" Association="SEPMRA_SO_ANA.assoc_E04DBC188394E718489B8003D3546C60" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SEPMRA_C_ALP_SalesOrderItem" Role="FromRole_assoc_E04DBC188394E718489B8003D3546C60"/>
+                    <End EntitySet="SEPMRA_C_ALP_Product" Role="ToRole_assoc_E04DBC188394E718489B8003D3546C60"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_FE16A495275A3BA7D195403FB549001C" Association="SEPMRA_SO_ANA.assoc_FE16A495275A3BA7D195403FB549001C" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SEPMRA_C_ALP_SlsOrdItemCube" Role="FromRole_assoc_FE16A495275A3BA7D195403FB549001C"/>
+                    <End EntitySet="SEPMRA_C_ALP_SalesOrderItem" Role="ToRole_assoc_FE16A495275A3BA7D195403FB549001C"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_4B7F44C128E6D1B4FBEB759C293CF5D5" Association="SEPMRA_SO_ANA.assoc_4B7F44C128E6D1B4FBEB759C293CF5D5" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SEPMRA_C_ALP_SalesOrder" Role="FromRole_assoc_4B7F44C128E6D1B4FBEB759C293CF5D5"/>
+                    <End EntitySet="SEPMRA_C_ALP_SalesOrderItem" Role="ToRole_assoc_4B7F44C128E6D1B4FBEB759C293CF5D5"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_D6B8C833B81F95BE4482A9709964DFEF" Association="SEPMRA_SO_ANA.assoc_D6B8C833B81F95BE4482A9709964DFEF" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SEPMRA_C_ALP_SalesOrder" Role="FromRole_assoc_D6B8C833B81F95BE4482A9709964DFEF"/>
+                    <End EntitySet="SEPMRA_C_ALP_User" Role="ToRole_assoc_D6B8C833B81F95BE4482A9709964DFEF"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_33F6F629FB14F2FA9AD65F093B6F6520" Association="SEPMRA_SO_ANA.assoc_33F6F629FB14F2FA9AD65F093B6F6520" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SEPMRA_C_ALP_SlsOrdItemCube" Role="FromRole_assoc_33F6F629FB14F2FA9AD65F093B6F6520"/>
+                    <End EntitySet="SEPMRA_C_ALP_SalesOrder" Role="ToRole_assoc_33F6F629FB14F2FA9AD65F093B6F6520"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_CustomerVHType/Country" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Country"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_CountryVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Country"/>
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryT"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_ProductType/MainProductCategory" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Main Category"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_I_ProductMainCategory"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_ProductCatVHType/MainProductCategory" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Sub-Category"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_ProductMainCatVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_ProductVHType/ProductCategory" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Sub-Category"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_ProductCatVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_ProductVHType/MainProductCategory" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Category"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_ProductMainCatVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_ProductVHType/Supplier" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Supplier"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_SupplierVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/>
+                                    <PropertyValue Property="ValueListProperty" String="Supplier"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SalesOrderType/Customer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Customer"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_CustomerVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Customer"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SalesOrderType/CreatedByUser" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="User"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_User"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CreatedByUser"/>
+                                    <PropertyValue Property="ValueListProperty" String="UserId"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FullName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SalesOrderType/LastChangedByUser" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="User"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_User"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CreatedByUser"/>
+                                    <PropertyValue Property="ValueListProperty" String="UserId"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FullName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SalesOrderItemType/SalesOrder" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Sales Order"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_SalesOrder"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrder"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrder"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatus_T"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="TransactionCurrency_T"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SalesOrderItemType/Product" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Product"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_ProductVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Product"/>
+                                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductDescription"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Supplier"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType/DeliveryCalendarYear" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList" Qualifier="VisualFilter">
+                    <Record>
+                        <PropertyValue Property="Label" String="Year"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_SlsOrdItemCube"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="PresentationVariantQualifier" String="FilterRevenueByCalendarYear"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrder"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrder"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderItem"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderItem"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarDate"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarDate"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarYear"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarYear"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarQuarter"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarter"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarMonth"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonth"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Product"/>
+                                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderOverallStatus"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatus"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToPartyCountry"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountry"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/>
+                                    <PropertyValue Property="ValueListProperty" String="Supplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Currency"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonthT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarterT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="GrossAmount"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetAmount"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetProductPrice"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NumberOfSalesOrders"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Quantity"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnit"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnitT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatusT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountryName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SupplierCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="TaxAmount"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Year"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_CalendarYearVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarYear"/>
+                                    <PropertyValue Property="ValueListProperty" String="CalendarYear"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType/DeliveryCalendarQuarter" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList" Qualifier="VisualFilter">
+                    <Record>
+                        <PropertyValue Property="Label" String="Quarter"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_SlsOrdItemCube"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="PresentationVariantQualifier" String="FilterRevenueByCalendarQuarter"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrder"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrder"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderItem"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderItem"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarDate"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarDate"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarYear"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarYear"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarQuarter"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarter"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarMonth"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonth"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Product"/>
+                                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderOverallStatus"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatus"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToPartyCountry"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountry"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/>
+                                    <PropertyValue Property="ValueListProperty" String="Supplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Currency"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonthT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarterT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="GrossAmount"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetAmount"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetProductPrice"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NumberOfSalesOrders"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Quantity"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnit"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnitT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatusT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountryName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SupplierCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="TaxAmount"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Quarter"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_CalendarQuarterVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarQuarter"/>
+                                    <PropertyValue Property="ValueListProperty" String="CalendarQuarter"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CalendarQuarterT"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType/DeliveryCalendarMonth" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList" Qualifier="VisualFilter">
+                    <Record>
+                        <PropertyValue Property="Label" String="Month"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_SlsOrdItemCube"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="PresentationVariantQualifier" String="FilterRevenueByCalendarMonth"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrder"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrder"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderItem"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderItem"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarDate"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarDate"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarYear"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarYear"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarQuarter"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarter"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarMonth"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonth"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Product"/>
+                                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderOverallStatus"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatus"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToPartyCountry"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountry"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/>
+                                    <PropertyValue Property="ValueListProperty" String="Supplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Currency"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonthT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarterT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="GrossAmount"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetAmount"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetProductPrice"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NumberOfSalesOrders"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Quantity"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnit"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnitT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatusT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountryName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SupplierCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="TaxAmount"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Month"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_CalendarMonthVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarMonth"/>
+                                    <PropertyValue Property="ValueListProperty" String="CalendarMonth"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CalendarMonthT"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType/Product" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList" Qualifier="VisualFilter">
+                    <Record>
+                        <PropertyValue Property="Label" String="Product"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_SlsOrdItemCube"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="PresentationVariantQualifier" String="FilterRevenueByProduct"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrder"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrder"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderItem"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderItem"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarDate"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarDate"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarYear"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarYear"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarQuarter"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarter"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarMonth"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonth"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Product"/>
+                                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderOverallStatus"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatus"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToPartyCountry"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountry"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/>
+                                    <PropertyValue Property="ValueListProperty" String="Supplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Currency"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonthT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarterT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="GrossAmount"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetAmount"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetProductPrice"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NumberOfSalesOrders"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Quantity"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnit"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnitT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatusT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountryName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SupplierCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="TaxAmount"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Product"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_ProductVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Product"/>
+                                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductDescription"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Supplier"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType/ProductCategory" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList" Qualifier="VisualFilter">
+                    <Record>
+                        <PropertyValue Property="Label" String="Sub-Category"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_SlsOrdItemCube"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="PresentationVariantQualifier" String="FilterRevenueByProductCategory"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrder"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrder"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderItem"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderItem"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarDate"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarDate"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarYear"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarYear"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarQuarter"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarter"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarMonth"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonth"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Product"/>
+                                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderOverallStatus"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatus"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToPartyCountry"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountry"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/>
+                                    <PropertyValue Property="ValueListProperty" String="Supplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Currency"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonthT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarterT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="GrossAmount"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetAmount"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetProductPrice"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NumberOfSalesOrders"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Quantity"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnit"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnitT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatusT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountryName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SupplierCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="TaxAmount"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Sub-Category"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_ProductCatVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType/MainProductCategory" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList" Qualifier="VisualFilter">
+                    <Record>
+                        <PropertyValue Property="Label" String="Category"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_SlsOrdItemCube"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="PresentationVariantQualifier" String="FilterRevenueByMainProductCategory"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrder"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrder"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderItem"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderItem"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarDate"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarDate"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarYear"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarYear"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarQuarter"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarter"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarMonth"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonth"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Product"/>
+                                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderOverallStatus"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatus"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToPartyCountry"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountry"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/>
+                                    <PropertyValue Property="ValueListProperty" String="Supplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Currency"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonthT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarterT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="GrossAmount"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetAmount"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetProductPrice"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NumberOfSalesOrders"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Quantity"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnit"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnitT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatusT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountryName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SupplierCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="TaxAmount"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Category"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_ProductMainCatVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType/SalesOrderOverallStatus" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList" Qualifier="VisualFilter">
+                    <Record>
+                        <PropertyValue Property="Label" String="Overall Status"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_SlsOrdItemCube"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="PresentationVariantQualifier" String="FilterNumberOfSalesOrdersByStatus"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrder"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrder"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderItem"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderItem"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarDate"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarDate"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarYear"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarYear"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarQuarter"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarter"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarMonth"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonth"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Product"/>
+                                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderOverallStatus"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatus"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToPartyCountry"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountry"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/>
+                                    <PropertyValue Property="ValueListProperty" String="Supplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Currency"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonthT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarterT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="GrossAmount"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetAmount"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetProductPrice"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NumberOfSalesOrders"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Quantity"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnit"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnitT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatusT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountryName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SupplierCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="TaxAmount"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Overall Status"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_SlsOrdStatusVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderOverallStatus"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatus"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatus_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType/SoldToParty" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList" Qualifier="VisualFilter">
+                    <Record>
+                        <PropertyValue Property="Label" String="Customer"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_SlsOrdItemCube"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="PresentationVariantQualifier" String="FilterRevenueByCustomer"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrder"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrder"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderItem"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderItem"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarDate"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarDate"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarYear"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarYear"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarQuarter"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarter"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarMonth"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonth"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Product"/>
+                                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderOverallStatus"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatus"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToPartyCountry"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountry"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/>
+                                    <PropertyValue Property="ValueListProperty" String="Supplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Currency"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonthT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarterT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="GrossAmount"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetAmount"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetProductPrice"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NumberOfSalesOrders"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Quantity"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnit"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnitT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatusT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountryName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SupplierCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="TaxAmount"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Customer"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_CustomerVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType/SoldToPartyCountry" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList" Qualifier="VisualFilter">
+                    <Record>
+                        <PropertyValue Property="Label" String="Customer Country"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_SlsOrdItemCube"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="PresentationVariantQualifier" String="FilterRevenueByCustomerCountry"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrder"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrder"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderItem"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderItem"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarDate"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarDate"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarYear"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarYear"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarQuarter"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarter"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarMonth"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonth"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Product"/>
+                                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderOverallStatus"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatus"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToPartyCountry"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountry"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/>
+                                    <PropertyValue Property="ValueListProperty" String="Supplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Currency"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonthT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarterT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="GrossAmount"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetAmount"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetProductPrice"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NumberOfSalesOrders"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Quantity"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnit"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnitT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatusT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountryName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SupplierCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="TaxAmount"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Customer Country"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_CountryVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToPartyCountry"/>
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryT"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType/Supplier" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList" Qualifier="VisualFilter">
+                    <Record>
+                        <PropertyValue Property="Label" String="Supplier"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_SlsOrdItemCube"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="PresentationVariantQualifier" String="FilterRevenueBySupplier"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrder"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrder"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderItem"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderItem"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarDate"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarDate"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarYear"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarYear"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarQuarter"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarter"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DeliveryCalendarMonth"/>
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonth"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Product"/>
+                                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MainProductCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="MainProductCategory"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderOverallStatus"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatus"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToPartyCountry"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountry"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/>
+                                    <PropertyValue Property="ValueListProperty" String="Supplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Currency"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarMonthT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DeliveryCalendarQuarterT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="GrossAmount"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetAmount"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NetProductPrice"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="NumberOfSalesOrders"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Quantity"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnit"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="QuantityUnitT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatusT"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SoldToPartyCountryName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SupplierCompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="TaxAmount"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Supplier"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_SupplierVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/>
+                                    <PropertyValue Property="ValueListProperty" String="Supplier"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CompanyName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SupplierVHType/Country" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Country"/>
+                        <PropertyValue Property="CollectionPath" String="SEPMRA_C_ALP_CountryVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Country"/>
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryT"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_SO_ANA_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType/SalesOrder" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType/SalesOrderItem" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_SO_ANA_Entities/SEPMRA_C_ALP_Customer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="URL"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>URL</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_SO_ANA_Entities/SEPMRA_C_ALP_SlsOrdItemCube" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>ID</PropertyPath>
+                                <PropertyPath>NetProductPrice</PropertyPath>
+                                <PropertyPath>GrossAmount</PropertyPath>
+                                <PropertyPath>NetAmount</PropertyPath>
+                                <PropertyPath>NetAmntDeviationRangeLow</PropertyPath>
+                                <PropertyPath>NetAmntToleranceRangeLow</PropertyPath>
+                                <PropertyPath>TaxAmount</PropertyPath>
+                                <PropertyPath>Quantity</PropertyPath>
+                                <PropertyPath>NumberOfSalesOrders</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>ID</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_SO_ANA_Entities/SEPMRA_C_ALP_TotalSalesKPI" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>ID</PropertyPath>
+                                <PropertyPath>KPIValue</PropertyPath>
+                                <PropertyPath>ReferenceValue</PropertyPath>
+                                <PropertyPath>KPITargetValue</PropertyPath>
+                                <PropertyPath>KPIDeviationRangeLowValue</PropertyPath>
+                                <PropertyPath>KPIToleranceRangeLowValue</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>ID</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_ProductVHType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>Product</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>SalesOrderItem</PropertyPath>
+                        <PropertyPath>SalesOrder</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType/SalesOrder" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticObjectMapping">
+                    <Collection>
+                        <Record>
+                            <PropertyValue Property="LocalProperty" PropertyPath="SalesOrder"/>
+                            <PropertyValue Property="SemanticObjectProperty" String="SalesOrder"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SalesOrderType/SalesOrder" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticObjectMapping">
+                    <Collection>
+                        <Record>
+                            <PropertyValue Property="LocalProperty" PropertyPath="SalesOrder"/>
+                            <PropertyValue Property="SemanticObjectProperty" String="SalesOrder"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType/Product" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticObjectMapping">
+                    <Collection>
+                        <Record>
+                            <PropertyValue Property="LocalProperty" PropertyPath="Product"/>
+                            <PropertyValue Property="SemanticObjectProperty" String="Product"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_ProductType/Product" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticObjectMapping">
+                    <Collection>
+                        <Record>
+                            <PropertyValue Property="LocalProperty" PropertyPath="Product"/>
+                            <PropertyValue Property="SemanticObjectProperty" String="Product"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_ProductVHType/Product" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticObjectMapping">
+                    <Collection>
+                        <Record>
+                            <PropertyValue Property="LocalProperty" PropertyPath="Product"/>
+                            <PropertyValue Property="SemanticObjectProperty" String="Product"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_SlsOrdItemCubeType/Supplier" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticObjectMapping">
+                    <Collection>
+                        <Record>
+                            <PropertyValue Property="LocalProperty" PropertyPath="Supplier"/>
+                            <PropertyValue Property="SemanticObjectProperty" String="Supplier"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_ProductType/Supplier" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticObjectMapping">
+                    <Collection>
+                        <Record>
+                            <PropertyValue Property="LocalProperty" PropertyPath="Supplier"/>
+                            <PropertyValue Property="SemanticObjectProperty" String="Supplier"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SEPMRA_SO_ANA.SEPMRA_C_ALP_ProductVHType/Supplier" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticObjectMapping">
+                    <Collection>
+                        <Record>
+                            <PropertyValue Property="LocalProperty" PropertyPath="Supplier"/>
+                            <PropertyValue Property="SemanticObjectProperty" String="Supplier"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="http://s4h22.sap4practice.com:8007/sap/opu/odata/sap/SEPMRA_SO_ANA/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://s4h22.sap4practice.com:8007/sap/opu/odata/sap/SEPMRA_SO_ANA/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
