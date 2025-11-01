@@ -1,0 +1,25 @@
+<mvc:View
+            controllerName="com.logaligroup.products.controller.Details"
+            xmlns="sap.m"
+            xmlns:uxap="sap.uxap"
+            xmlns:mvc="sap.ui.core.mvc">
+
+            <uxap:ObjectPageLayout>
+
+                <uxap:headerTitle>
+
+                    <uxap:ObjectPageDynamicHeaderTitle>
+
+                        <uxap:expandedHeading>
+                            <Title text="Details"/>
+                        </uxap:expandedHeading>
+                    
+                    </uxap:ObjectPageDynamicHeaderTitle>
+                
+                </uxap:headerTitle>
+            
+            
+            </uxap:ObjectPageLayout>
+
+
+</mvc:View>

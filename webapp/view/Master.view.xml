@@ -1,0 +1,208 @@
+<mvc:View  
+        controllerName="com.logaligroup.products.controller.Master"
+        xmlns="sap.m"
+        xmlns:f="sap.f"
+        xmlns:core="sap.ui.core"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:fb="sap.ui.comp.filterbar">
+
+        <f:DynamicPage>
+
+            <f:title>
+                <f:DynamicPageTitle>
+                    <f:heading>
+                        <Title text="{i18n>appTitle}"
+                                    wrapping="true"/>
+                    </f:heading>
+                </f:DynamicPageTitle>
+            </f:title>
+
+            <f:header>
+                <f:DynamicPageHeader>
+
+                    <fb:FilterBar
+                                    search="onSearchPress"
+                                    showClearOnFB="true"
+                                    clear="onClearPress">
+
+                        <fb:filterGroupItems>
+
+                            <fb:FilterGroupItem
+                                                groupName="filters"
+                                                name="product"
+                                                label="{i18n>product}"
+                                                visibleInFilterBar="true">
+                                <fb:control>
+
+                                    <Input/>
+                                
+                                </fb:control>
+                            </fb:FilterGroupItem>
+
+
+                            <fb:FilterGroupItem
+                                        groupName="filters"
+                                        name="category"
+                                        label="{i18n>category}"
+                                        visibleInFilterBar="true">
+                            
+                                <fb:control>
+
+                                    <ComboBox
+                                                items="{/VH_CategoriesSet}"
+                                                showSecondaryValues="true">
+                                            <core:ListItem key="{ID}" 
+                                                            text="{category}"/>
+                                    
+                                    </ComboBox>
+                                
+                                </fb:control>
+                            
+                            </fb:FilterGroupItem>
+
+
+                            <fb:FilterGroupItem groupName="filters"
+                                                name="rating"
+                                                label="{i18n>rating}"
+                                                visibleInFilterBar="true">
+                                <fb:control>
+
+                                    <RatingIndicator />
+                                
+                                </fb:control>                
+
+                            </fb:FilterGroupItem>
+
+                            <fb:FilterGroupItem groupName="filters"
+                                                name="price"
+                                                label="{i18n>price}"
+                                                visibleInFilterBar="true">
+                                <fb:control>
+
+                                    <RangeSlider showAdvancedTooltip="true"/>
+                                
+                                </fb:control>                    
+                            </fb:FilterGroupItem>
+
+                            <fb:FilterGroupItem groupName="filters"
+                                            name="stock"
+                                            label="{i18n>stock}"
+                                            visibleInFilterBar="true">
+                                            
+                                <fb:control>
+
+                                    <ComboBox items="{/VH_Stock}">
+                                        <items>
+                                            <core:Item key="{code}" text="{name}"/>
+                                        </items>
+                                    </ComboBox>
+                                
+                                </fb:control>                
+                            </fb:FilterGroupItem>
+
+                        
+                        </fb:filterGroupItems>
+                    
+                    </fb:FilterBar>
+                
+                </f:DynamicPageHeader>
+            </f:header>
+
+            <f:content>
+
+                <Table  id="table"
+                        items="{/ProductsSet}">
+
+                        <headerToolbar>
+                            <Toolbar>
+                                <content>
+                                    <Title 
+                                            core:require="{
+                                                MyFormatter: 'com/logaligroup/products/model/formatter'
+                                            }"
+                                            text="{
+                                                path: 'view>/title',
+                                                formatter: 'MyFormatter.titleFormatter.bind($controller)'
+                                            }"
+                                            wrapping="true"/>
+                                </content>
+                            </Toolbar>
+                        </headerToolbar>
+
+                        <columns>
+
+                            <Column
+                                    minScreenWidth="Small"
+                                    demandPopin="true">
+                                <Label text="{i18n>product}"/>
+                            </Column>
+
+                            <Column minScreenWidth="Small"
+                                    demandPopin="false">
+                                <Label text="{i18n>category}"/>
+                            </Column>
+
+                            <Column
+                                    minScreenWidth="Small"
+                                    demandPopin="false">
+                                <Label text="{i18n>subCategory}"/>
+                            </Column>
+
+                            <Column
+                                    minScreenWidth="Small"
+                                    demandPopin="true">
+                                <Label text="{i18n>rating}"/>
+                            </Column>
+
+                            <Column
+                                    minScreenWidth="Small"
+                                    demandPopin="true">
+                                <Label text="{i18n>price}"/>
+                            </Column>
+
+                            <Column
+                                    minScreenWidth="Small"
+                                    demandPopin="true">
+                                <Label text="{i18n>stock}"/>
+                            </Column>
+
+                        </columns>
+
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <ObjectIdentifier title="{product}" 
+                                                        text="{productName}"/>
+                                    <Text text="{category/category}"/>
+                                    <Text text="{subCategory/subCategory}"/>
+                                    <RatingIndicator value="{rating}"
+                                                        enabled="false"/>
+                                    <ObjectNumber number="{
+                                        parts: [
+                                            'price',
+                                            'currency'
+                                        ],
+                                        type: 'sap.ui.model.type.Currency',
+                                        formatOptions: {
+                                            showMeasure: false
+                                        }
+                                    }" 
+                                    unit="{currency}"/>
+                                    <ObjectStatus text="{stock/name}"
+                                                    state="{=
+                                                        ${stock_code} === 'Available'? 'Success' :
+                                                        ${stock_code} === 'LowAvailability'? 'Warning' :
+                                                        ${stock_code} === 'NotAvailable'? 'Error' : 'Information'
+                                                    }"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+
+                </Table>
+
+            </f:content>
+
+        
+        </f:DynamicPage>
+
+</mvc:View>
