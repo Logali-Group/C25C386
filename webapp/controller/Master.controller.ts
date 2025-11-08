@@ -12,6 +12,10 @@ import SearchField from "sap/m/SearchField";
 import Filter from "sap/ui/model/Filter";
 import Table from "sap/m/Table";
 import ODataListBinding from "sap/ui/model/odata/v4/ODataListBinding";
+import Event from "sap/ui/base/Event";
+import ColumnListItem from "sap/m/ColumnListItem";
+import Context from "sap/ui/model/odata/v4/Context";
+import JSONModel from "sap/ui/model/json/JSONModel";
 
 /**
  * @namespace com.logaligroup.products.controller
@@ -89,5 +93,19 @@ export default class Main extends BaseController {
         (controls[4] as ComboBox).setSelectedKey("");
 
         this.applyFilters([]);
+    }
+
+    public onNavToDetails (event : Event) : void {
+        let item = (event.getSource()) as ColumnListItem;
+        const bindingContext = item.getBindingContext() as Context;
+        const id = bindingContext.getProperty("ID");
+
+        const model = this.getModel("view") as JSONModel;
+        model.setProperty("/layout","TwoColumnsMidExpanded");
+        
+        const router = this.getRouter();
+        router.navTo("RouteDetails",{
+            key: id
+        });
     }
 }

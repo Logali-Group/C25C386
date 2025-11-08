@@ -1,0 +1,48 @@
+<core:FragmentDefinition
+                xmlns="sap.m"
+                xmlns:core="sap.ui.core"
+                xmlns:form="sap.ui.layout.form">
+
+    <VBox
+            class="sapUiSmallMargin">
+
+        <form:SimpleForm id="formDisplay">
+        
+                <form:content>
+                
+                        <Label text="{i18n>product}"/>
+                        <Text text="{product}"/>
+
+                        <Label text="{i18n>productName}"/>
+                        <Text text="{productName}"/>
+
+                        <Label text="{i18n>description}"/>
+                        <Text text="{description}"/>
+
+                        <Label text="{i18n>supplier}"/>
+                        <Text text="{supplier/supplierName}"/>
+
+                        <Label text="{i18n>category}"/>
+                        <Text text="{category/category}"/>
+
+                        <Label text="{i18n>subCategory}"/>
+                        <Text text="{subCategory/subCategory}"/>
+
+                        <Label text="{i18n>rating}"/>
+                        <RatingIndicator value="{rating}"
+                                                enabled="false"/>
+
+                        <Label text="{i18n>price}"/>
+                        <ObjectNumber number="{price}"
+                                        unit="{currency}"/>
+
+                        <Label text="{i18n>stock}"/>
+                        <Text text="{stock/name}"/>
+                
+                </form:content>
+        
+        </form:SimpleForm>
+    
+    </VBox>
+
+</core:FragmentDefinition>

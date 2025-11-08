@@ -99,6 +99,14 @@
           "target": [
             "TargetMaster"
           ]
+        },
+        {
+          "name": "RouteDetails",
+          "pattern": "Products(ID={key}):?query:",
+          "target":[
+            "TargetMaster",
+            "TargetDetails"
+          ]
         }
       ],
       "targets": {
@@ -110,6 +118,12 @@
           "controlId": "fcl",
           "controlAggregation": "beginColumnPages",
           "name": "Master"
+        },
+        "TargetDetails": {
+          "parent": "TargetContainer",
+          "controlId": "fcl",
+          "controlAggregation": "midColumnPages",
+          "name": "Details"
         }
       }
     },

@@ -11,12 +11,80 @@
                     <uxap:ObjectPageDynamicHeaderTitle>
 
                         <uxap:expandedHeading>
-                            <Title text="Details"/>
+                            <Title text="{productName}"/>
                         </uxap:expandedHeading>
+
+                        <uxap:actions>
+
+                            <Button id="edit"
+                                    text="{i18n>edit}"
+                                    tooltip="{i18n>edit}"
+                                    type="Emphasized"
+                                    press="handleEditPress"/>
+
+                            <Button id="delete"
+                                    text="{i18n>delete}"
+                                    tooltip="{i18n>delete}"
+                                    type="Reject"
+                                    press="handleDeletePress"/>
+
+                            <Button id="save"
+                                    text="{i18n>save}"
+                                    tooltip="{i18n>save}"
+                                    type="Accept"
+                                    press="handleSavePress"
+                                    visible="false"/>
+
+                            <Button id="cancel"
+                                    text="{i18n>cancel}"
+                                    tooltip="{i18n>cancel}"
+                                    type="Attention"
+                                    visible="false"
+                                    press="handleCancelPress"/>
+
+                            <Button
+                                    icon="sap-icon://exit-full-screen"
+                                    press="toggleFullScreen"
+                                    visible="{= ${view>/actionButtonsInfo/midColumn/fullScreen}}"/>
+
+                            <Button
+                                    icon="sap-icon://full-screen"
+                                    press="toggleFullScreen"
+                                    visible="{= !${view>/actionButtonsInfo/midColumn/fullScreen}}"/>
+
+                            <Button
+                                    icon="sap-icon://decline"
+                                    press="onCloseDetailsPress"/>
+                        
+                        </uxap:actions>
                     
                     </uxap:ObjectPageDynamicHeaderTitle>
                 
                 </uxap:headerTitle>
+
+
+                <uxap:sections>
+
+                    <uxap:ObjectPageSection>
+
+                        <uxap:subSections>
+
+                            <uxap:ObjectPageSubSection>
+
+                                <uxap:blocks>
+                                
+                                    <FlexBox id="formInformation"
+                                            direction="Column"/>
+                                
+                                </uxap:blocks>
+                            
+                            </uxap:ObjectPageSubSection>
+                        
+                        </uxap:subSections>
+                    
+                    </uxap:ObjectPageSection>
+                
+                </uxap:sections>
             
             
             </uxap:ObjectPageLayout>

@@ -14,7 +14,14 @@ export default class App extends BaseController {
     private loadView () : void {
         let data = {
             title: "",
-            layout: "OneColumn"
+            layout: "OneColumn",
+            previousLayout: "",
+            actionButtonsInfo: {
+                midColumn: {
+                    fullScreen: false
+                }
+            },
+            action: 'edit'
         };
         let model = new JSONModel(data);
         this.setModel(model, "view");
