@@ -16,6 +16,7 @@ import Event from "sap/ui/base/Event";
 import ColumnListItem from "sap/m/ColumnListItem";
 import Context from "sap/ui/model/odata/v4/Context";
 import JSONModel from "sap/ui/model/json/JSONModel";
+import Utils from "../utils/Utils";
 
 /**
  * @namespace com.logaligroup.products.controller
@@ -103,6 +104,19 @@ export default class Main extends BaseController {
         const model = this.getModel("view") as JSONModel;
         model.setProperty("/layout","TwoColumnsMidExpanded");
         
+        const router = this.getRouter();
+        router.navTo("RouteDetails",{
+            key: id
+        });
+    }
+
+    public async onCreatePress () : Promise<void> {
+        const utils = new Utils();
+        const id = await utils.crud(this,'create');
+        const view = this.getModel("view") as JSONModel;
+        view.setProperty("/action","create");
+        view.setProperty("/layout","TwoColumnsMidExpanded");
+
         const router = this.getRouter();
         router.navTo("RouteDetails",{
             key: id

@@ -125,8 +125,16 @@
                                                 formatter: 'MyFormatter.titleFormatter.bind($controller)'
                                             }"
                                             wrapping="true"/>
+                                     <ToolbarSpacer/>
+                                     <Button    
+                                            text="{i18n>create}"
+                                            tooltip="{i18n>create}"
+                                            type="Emphasized"
+                                            press="onCreatePress"
+                                            width="6rem"/>
                                 </content>
                             </Toolbar>
+                           
                         </headerToolbar>
 
                         <columns>

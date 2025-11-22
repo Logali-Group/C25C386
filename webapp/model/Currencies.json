@@ -1,0 +1,124 @@
+{
+    "Currencies": [
+        {
+            "currency_code": "USD",
+            "currency": "United States Dollar",
+            "minorUnit": 2,
+            "symbol": "$"
+        },
+        {
+            "currency_code": "EUR",
+            "currency": "Euro",
+            "minorUnit": 2,
+            "symbol": "€"
+        },
+        {
+            "currency_code": "JPY",
+            "currency": "Japanese Yen",
+            "minorUnit": 0,
+            "symbol": "¥"
+        },
+        {
+            "currency_code": "GBP",
+            "currency": "Pound Sterling",
+            "minorUnit": 2,
+            "symbol": "£"
+        },
+        {
+            "currency_code": "CNY",
+            "currency": "Renminbi",
+            "minorUnit": 2,
+            "symbol": "¥"
+        },
+        {
+            "currency_code": "AUD",
+            "currency": "Australian Dollar",
+            "minorUnit": 2,
+            "symbol": "A$"
+        },
+        {
+            "currency_code": "CAD",
+            "currency": "Canadian Dollar",
+            "minorUnit": 2,
+            "symbol": "C$"
+        },
+        {
+            "currency_code": "CHF",
+            "currency": "Swiss Franc",
+            "minorUnit": 2,
+            "symbol": "CHF"
+        },
+        {
+            "currency_code": "HKD",
+            "currency": "Hong Kong Dollar",
+            "minorUnit": 2,
+            "symbol": "HK$"
+        },
+        {
+            "currency_code": "SGD",
+            "currency": "Singapore Dollar",
+            "minorUnit": 2,
+            "symbol": "S$"
+        },
+        {
+            "currency_code": "SEK",
+            "currency": "Swedish Krona",
+            "minorUnit": 2,
+            "symbol": "kr"
+        },
+        {
+            "currency_code": "KRW",
+            "currency": "South Korean Won",
+            "minorUnit": 0,
+            "symbol": "₩"
+        },
+        {
+            "currency_code": "NOK",
+            "currency": "Norwegian Krone",
+            "minorUnit": 2,
+            "symbol": "kr"
+        },
+        {
+            "currency_code": "NZD",
+            "currency": "New Zealand Dollar",
+            "minorUnit": 2,
+            "symbol": "NZ$"
+        },
+        {
+            "currency_code": "INR",
+            "currency": "Indian Rupee",
+            "minorUnit": 2,
+            "symbol": "₹"
+        },
+        {
+            "currency_code": "MXN",
+            "currency": "Mexican Peso",
+            "minorUnit": 2,
+            "symbol": "$"
+        },
+        {
+            "currency_code": "BRL",
+            "currency": "Brazilian Real",
+            "minorUnit": 2,
+            "symbol": "R$"
+        },
+        {
+            "currency_code": "ZAR",
+            "currency": "South African Rand",
+            "minorUnit": 2,
+            "symbol": "R"
+        },
+        {
+            "currency_code": "RUB",
+            "currency": "Russian Ruble",
+            "minorUnit": 2,
+            "symbol": "₽"
+        },
+        {
+            "currency_code": "TRY",
+            "currency": "Turkish Lira",
+            "minorUnit": 2,
+            "symbol": "₺"
+        }
+    ]
+}

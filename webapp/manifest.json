@@ -44,7 +44,8 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": false,
+    
+    "handleValidation": true,"flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.136.0",
       "libs": {
@@ -71,6 +72,10 @@
           "autoExpandSelect": true,
           "earlyRequests": true
         }
+      },
+      "currencies": {
+        "type":"sap.ui.model.json.JSONModel",
+        "uri":"model/Currencies.json"
       }
     },
     "resources": {

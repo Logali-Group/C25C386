@@ -7,6 +7,12 @@ import VBox from "sap/m/VBox";
 import FlexBox from "sap/m/FlexBox";
 import Context from "sap/ui/model/odata/v4/Context";
 import Fragment from "sap/ui/core/Fragment";
+import Utils from "../utils/Utils";
+import SimpleFormValidator from "../utils/Validator";
+import Control from "sap/ui/core/Control";
+import SimpleForm from "sap/ui/layout/form/SimpleForm";
+import MessageBox from "sap/m/MessageBox";
+
 /**
  * @namespace com.logaligroup.products.controller
  */
@@ -18,7 +24,24 @@ export default class Details extends BaseController {
     public onInit () : void | undefined {
         const router = this.getRouter();
         router.getRoute("RouteDetails")?.attachPatternMatched(this.onBindingContext.bind(this));
-        
+        this.loadModel();
+    }
+
+    private loadModel () : void {
+        const data = {
+            product: "",
+            productName: "",
+            description: "",
+            supplier: "",
+            category: "",
+            subCategory: "",
+            stock: "",
+            rating: null,
+            currency: '',
+            price: null
+        };
+        const model = new JSONModel(data);
+        this.setModel(model, "form");
     }
 
     private onBindingContext (event : Route$PatternMatchedEvent) : void {
@@ -29,6 +52,9 @@ export default class Details extends BaseController {
         
         view.bindElement({
             path: `/ProductsSet(ID=${key})`,
+            parameters: {
+                $select: 'product,productName,description,supplier_ID,category_ID,subCategory_ID,stock_code,rating,price,currency'
+            },
             events: {
                 dataRequested : () => {
                     view.setBusy(true);
@@ -66,6 +92,10 @@ export default class Details extends BaseController {
     }
 
     public handleEditPress () : void {
+        const bindingContext = this.getView()?.getBindingContext() as Context;
+        const form = this.getModel("form") as JSONModel;
+        const utils = new Utils();
+        form.setData(utils.copy(bindingContext));
         this.toggleButtonAndView(true);
     }
 
@@ -73,8 +103,19 @@ export default class Details extends BaseController {
         //this.onCloseDetailsPress();
     }
 
-    public handleSavePress () : void {
-        this.toggleButtonAndView(false);
+    public async handleSavePress () : Promise<void> {
+        const resourceBundle = this.getResourceBundle();
+
+        if (!this.validate()) {
+            MessageBox.error(resourceBundle.getText("vilidateError") || 'no text defined');
+        } else {
+            const bindingContext = this.getView()?.getBindingContext() as Context;
+            const form = this.getModel("form") as JSONModel;
+            const utils = new Utils();
+            await utils.crud(this,'update',bindingContext,form);
+            //this.toggleButtonAndView(false);
+        }
+        
     }
 
     public handleCancelPress () : void {
@@ -85,6 +126,8 @@ export default class Details extends BaseController {
         (this.byId("edit") as Button).setVisible(!bEdit);
         (this.byId("save") as Button).setVisible(bEdit);
         (this.byId("cancel") as Button).setVisible(bEdit);
+
+        this.showFormFragment(bEdit? 'Change' : 'Display');
     }
 
     private async showFormFragment (sFramentName : string) : Promise<void> {
@@ -118,5 +161,16 @@ export default class Details extends BaseController {
 
         return pFormFragment;
     }
+
+    private validate () : boolean {
+        const formValidator = new SimpleFormValidator();
+        const change =  this.formFragments[1] as VBox;
+        const aggregations = change.getAggregation("items") as Control[];
+        const simpleForm = aggregations[0] as SimpleForm;
+        return formValidator.validate(simpleForm);
+    }
+
+
+
 
 }
