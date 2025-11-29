@@ -99,8 +99,11 @@ export default class Details extends BaseController {
         this.toggleButtonAndView(true);
     }
 
-    public handleDeletePress () : void {
-        //this.onCloseDetailsPress();
+    public async handleDeletePress () : Promise<void> {
+        const bindingContext = this.getView()?.getBindingContext() as Context;
+        const utils = new Utils();
+        await utils.crud(this,'delete',bindingContext);
+        this.onCloseDetailsPress();
     }
 
     public async handleSavePress () : Promise<void> {
@@ -113,7 +116,7 @@ export default class Details extends BaseController {
             const form = this.getModel("form") as JSONModel;
             const utils = new Utils();
             await utils.crud(this,'update',bindingContext,form);
-            //this.toggleButtonAndView(false);
+            this.toggleButtonAndView(false);
         }
         
     }
