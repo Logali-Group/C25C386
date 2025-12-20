@@ -1,0 +1,95 @@
+<core:FragmentDefinition
+            xmlns="sap.m"
+            xmlns:core="sap.ui.core"
+            xmlns:form="sap.ui.layout.form">
+
+    <Dialog id="dialog"
+                title="{i18n>createAppointment}">
+
+        <content>
+
+            <form:SimpleForm id="simpleform">
+
+                <form:content>
+
+                    <Label id="lbl-001" text="{i18n>patient}" required="true"/>
+                    <ComboBox id="cbox-001"
+                                items="{/PatientsSet}"
+                                selectedKey="{form>/patient_ID}">
+                        <core:Item id="item-001" key="{ID}" text="{fullName}"/>
+                    </ComboBox>
+
+                    <Label id="lbl-002" text="{i18n>type}" required="true"/>
+                    <ComboBox id="cbox-002"
+                                items="{/VH_TypesAppointments}"
+                                selectedKey="{form>/typeAppointment_ID}">
+                        <core:Item id="item-002" key="{ID}" text="{type}"/>
+                    </ComboBox>
+
+                    <Label id="lbl-003" text="{i18n>title}" required="true"/>
+                    <Input id="inpt-001" value="{form>/title}"/>
+
+                    <Label id="lbl-004" text="{i18n>description}"/>
+                    <TextArea id="txta-001" value="{form>/description}"/>
+
+                    <Label id="lbl-005" text="{i18n>startDate}"/>
+                    <DatePicker id="datep-001" 
+                                value="{form>/beginDate}"
+                                change="onChangeDatePickerPress"
+                                valueFormat="yyyy-MM-dd"/>
+
+
+                    <Label id="lbl-006" text="{i18n>endDate}"/>
+                    <DatePicker id="datep-002" 
+                                value="{form>/endDate}"
+                                valueFormat="yyyy-MM-dd" 
+                                enabled="{= ${IsActiveEntity} === false? false : true}"/>
+
+                    <Label id="lbl-007" text="{i18n>block}"/>
+                    <ComboBox id="cbox-003"
+                                items="{/VH_Blocks}"
+                                selectedKey="{form>/block_ID}"
+                                change="onChangeBlockPress">
+                        <core:Item id="item-003" key="{ID}" text="{timeText}"/>
+                    </ComboBox>
+
+                    <Label id="lbl-008" text="{i18n>startTime}"/>
+                    <Input id="inpt-002" 
+                            value="{form>/beginTime}"
+                            enabled="{= ${IsActiveEntity} === false? false : true}"/>
+
+                    <Label id="lbl-009" text="{i18n>endTime}"/>
+                    <Input id="inpt-003" 
+                            value="{form>/endTime}"
+                            enabled="{= ${IsActiveEntity} === false? false : true}"/>
+                
+                </form:content>
+            
+            </form:SimpleForm>
+        
+        </content>
+
+        <beginButton>
+            <Button
+                    id="save"
+                    text="{i18n>save}"
+                    tooltip="{i18n>save}"
+                    type="Emphasized"
+                    press="onSavePress"
+                    width="6rem"/>
+        </beginButton>
+
+        <endButton>
+            <Button
+                    id="cancel"
+                    text="{i18n>cancel}"
+                    tooltip="{i18n>cancel}"
+                    type="Reject"
+                    press="onClosePress"
+                    width="6rem"/>
+        </endButton>
+    
+    </Dialog>
+
+
+</core:FragmentDefinition>

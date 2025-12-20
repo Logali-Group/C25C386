@@ -1,0 +1,41 @@
+<core:FragmentDefinition xmlns:unified="sap.ui.unified" 
+							xmlns="sap.m" 
+							xmlns:core="sap.ui.core" 
+							xmlns:macros="sap.fe.macros">
+
+	<VBox id="vbox-container">
+
+		<SinglePlanningCalendar id="calendar"
+								appointments="{toAppointments}">
+
+			<views>
+				<SinglePlanningCalendarDayView id="day" key="day" title="{i18n>day}"/>
+				<SinglePlanningCalendarWeekView id="week" key="week"  title="{i18n>week}"/>
+				<SinglePlanningCalendarMonthView id="month" key="month" title="{i18n>month}"/>
+			</views>
+
+			<actions>
+				<Button
+						id="create"
+						text="{i18n>createAppointment}"
+						tooltip="{i18n>createAppointment}"
+						type="Emphasized"
+						visible="{= ${IsActiveEntity} === true? false : true }"
+						press=".extension.therapist.ext.controller.ObjectPage.onOpenForm"/>
+			</actions>
+
+			<appointments>
+
+				<unified:CalendarAppointment id="appointment" 
+											key="{block_ID}"
+											title="{title}"
+											description="{description}"
+											startDate="{startDate}"
+											endDate="{endDate2}"/>
+			</appointments>
+		
+		</SinglePlanningCalendar>
+		
+	</VBox>
+
+</core:FragmentDefinition>
