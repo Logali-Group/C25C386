@@ -3,14 +3,15 @@
   "authenticationMethod": "route",
   "routes": [
     {
-      "source": "^/resources/(.*)$",
-      "target": "/resources/$1",
+      "source": "^/odata/(.*)$",
+      "target": "/odata/$1",
+      "destination": "API_LOGALI_SRV",
       "authenticationType": "none",
-      "destination": "ui5"
+      "csrfProtection": false
     },
     {
-      "source": "^/test-resources/(.*)$",
-      "target": "/test-resources/$1",
+      "source": "^/resources/(.*)$",
+      "target": "/resources/$1",
       "authenticationType": "none",
       "destination": "ui5"
     },

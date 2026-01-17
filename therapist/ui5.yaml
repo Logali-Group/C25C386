@@ -17,7 +17,7 @@ server:
           url: https://ui5.sap.com
         backend:
           - path: /odata
-            url: http://159.65.96.144:8001
+            destination: API_LOGALI_SRV
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
